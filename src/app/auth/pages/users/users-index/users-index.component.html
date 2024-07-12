@@ -1,0 +1,51 @@
+<ng-container>
+  <nz-page-header nzTitle="Usuarios"
+    nzSubtitle="Gestión de usuarios">
+    <nz-breadcrumb nz-page-header-breadcrumb>
+      <nz-breadcrumb-item>
+        <a>Inicio</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>Usuarios</nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </nz-page-header>
+  <nz-divider></nz-divider>
+  <nz-space nzDirection="vertical"
+    nzSize="middle"
+    style="width: 100%;">
+    <button *nzSpaceItem
+      nz-button
+      nzType="primary"
+      (click)="create()">
+      <i nz-icon
+        nzType="plus"></i> Crear usuario
+    </button>
+    <nz-table *nzSpaceItem
+      #basicTable
+      nzSize="small"
+      nzBordered="true"
+      [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Address</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a>Action 一 {{ data.name }}</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-space>
+  <app-users-edit>
+  </app-users-edit>
+</ng-container>
